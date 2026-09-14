@@ -1,0 +1,11 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page import="java.sql.*" %>
+<%@ include file="/WEB-INF/jspf/conexion.jspf" %>
+<%@ include file="/WEB-INF/jspf/utilidades.jspf" %>
+<% String tituloPagina = "Encuentra tu próximo espacio"; String ctx = request.getContextPath(); Integer idUsuarioSesion = (Integer) session.getAttribute("idUsuario"); String rolSesion = (String) session.getAttribute("rol"); String nombreSesion = (String) session.getAttribute("nombre"); %>
+<%@ include file="/WEB-INF/jspf/cabecera.jspf" %>
+<section class="hero p-4 p-lg-5 mb-5">
+  <div class="row align-items-center g-4"><div class="col-lg-7"><p class="text-uppercase small mb-2">Inmobiliaria universitaria</p><h1 class="display-5 fw-bold">Espacios que hacen avanzar tu historia.</h1><p class="lead">Explora propiedades verificadas para comprar, arrendar o visitar en Santander y todo Colombia.</p><a class="btn btn-primary btn-lg" href="<%= ctx %>/propiedades.jsp"><i class="bi bi-search"></i> Explorar propiedades</a></div><div class="col-lg-5"><div class="bg-white text-dark p-4 rounded shadow-sm"><h2 class="h5">Búsqueda rápida</h2><form action="propiedades.jsp" method="get" class="row g-2"><div class="col-8"><input name="texto" class="form-control" placeholder="Ciudad o propiedad" aria-label="Ciudad o propiedad"></div><div class="col-4"><button class="btn btn-primary w-100">Buscar</button></div></form></div></div></div>
+</section>
+<div class="row g-4 mb-5"><div class="col-md-4"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><i class="bi bi-house-heart fs-2 text-primary"></i><h2 class="h5 mt-3">Oferta confiable</h2><p class="text-muted mb-0">Publicaciones con datos claros, características y ubicación.</p></div></div></div><div class="col-md-4"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><i class="bi bi-calendar-check fs-2 text-primary"></i><h2 class="h5 mt-3">Visitas sencillas</h2><p class="text-muted mb-0">Agenda tu cita y recibe seguimiento desde tu panel.</p></div></div></div><div class="col-md-4"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><i class="bi bi-shield-check fs-2 text-primary"></i><h2 class="h5 mt-3">Acompañamiento</h2><p class="text-muted mb-0">Gestiona tus solicitudes y documentos en un solo lugar.</p></div></div></div></div>
+<%@ include file="/WEB-INF/jspf/pie.jspf" %>

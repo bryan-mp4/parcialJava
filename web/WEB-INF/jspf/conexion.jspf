@@ -1,0 +1,31 @@
+<%@ page import="java.sql.*" %>
+<%!
+    public static final String DB_DRIVER = "org.mariadb.jdbc.Driver";
+    public static final String DB_URL = "jdbc:mariadb://localhost:3306/inmobiliaria_uts?useUnicode=true&characterEncoding=UTF-8";
+    public static final String DB_USUARIO = "bryan";
+    public static final String DB_CLAVE = "root";
+    // TODO: ajustar credenciales reales antes de desplegar
+
+    public Connection abrirConexion() throws SQLException {
+        try {
+            Class.forName(DB_DRIVER);
+        } catch (ClassNotFoundException ex) {
+            throw new SQLException("No se encontro el driver de MariaDB. Agregue el JAR a WEB-INF/lib.", ex);
+        }
+        return DriverManager.getConnection(DB_URL, DB_USUARIO, DB_CLAVE);
+    }
+
+    public void cerrar(AutoCloseable... recursos) {
+        for (int i = recursos.length - 1; i >= 0; i--) {
+            if (recursos[i] != null) {
+                try { recursos[i].close(); } catch (Exception ignorada) { }
+            }
+        }
+    }
+
+    public void deshacer(Connection con) {
+        if (con != null) {
+            try { con.rollback(); } catch (SQLException ignorada) { }
+        }
+    }
+%>

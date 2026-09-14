@@ -1,0 +1,9 @@
+:root { --habitat-ink: #17252f; --habitat-coral: #e8754d; --habitat-sand: #f5f1ea; }
+body { background: var(--habitat-sand); color: var(--habitat-ink); }
+.hero { background: linear-gradient(120deg, #183642, #2f6970); color: white; border-radius: .5rem; }
+.hero h1 { letter-spacing: .02em; }
+.property-card { height: 100%; border: 0; box-shadow: 0 .35rem 1rem rgba(23,37,47,.10); transition: transform .2s ease; }
+.property-card:hover { transform: translateY(-3px); }
+.property-image { height: 180px; object-fit: cover; background: #d8e3df; }
+.stat-card { border-left: 4px solid var(--habitat-coral); }
+.btn-primary { --bs-btn-bg: var(--habitat-coral); --bs-btn-border-color: var(--habitat-coral); --bs-btn-hover-bg: #c65d3e; --bs-btn-hover-border-color: #c65d3e; }
