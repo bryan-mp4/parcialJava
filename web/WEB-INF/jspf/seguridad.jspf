@@ -2,9 +2,9 @@
     Integer idUsuarioSesion = (Integer) session.getAttribute("idUsuario");
     String rolSesion = (String) session.getAttribute("rol");
     String nombreSesion = (String) session.getAttribute("nombre");
-    String ctx = request.getContextPath();
+    String ctxSeguridad = request.getContextPath();
     if (idUsuarioSesion == null) {
-        response.sendRedirect(ctx + "/login.jsp?error=sesion");
+        response.sendRedirect(ctxSeguridad + "/login.jsp?error=sesion");
         return;
     }
     boolean autorizado = false;
@@ -12,7 +12,7 @@
         if (rolPermitido.equals(rolSesion)) { autorizado = true; break; }
     }
     if (!autorizado) {
-        response.sendRedirect(ctx + "/acceso-denegado.jsp");
+        response.sendRedirect(ctxSeguridad + "/acceso-denegado.jsp");
         return;
     }
 %>
